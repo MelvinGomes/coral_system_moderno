@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+      O "parent" do Spring Boot Starter Parent. Ele gerencia as versões
+      das dependências e as configurações padrão do Maven para projetos Spring Boot.
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.7</version> <!-- Versão recente e estável do Spring Boot -->
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.coral</groupId>
+    <artifactId>coral-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>coral-web-app</name>
+    <description>Aplicação web para gerenciamento de coral</description>
+
+    <properties>
+        <!-- Define a versão do Java para o projeto. Spring Boot 3 requer Java 17 ou superior. -->
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencies>
+        <!-- =============================================================== -->
+        <!-- DEPENDÊNCIAS PRINCIPAIS DO SPRING BOOT                          -->
+        <!-- =============================================================== -->
+
+        <!-- Starter para construir aplicações web, incluindo APIs REST.
+             Inclui Spring MVC, Jackson para JSON, e um servidor Tomcat embutido. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Starter para usar JDBC para acesso a dados, facilitando a
+             conexão com o banco de dados. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+        </dependency>
+
+        <!-- =============================================================== -->
+        <!-- DEPENDÊNCIAS DE BANCO DE DADOS                                 -->
+        <!-- =============================================================== -->
+
+        <!-- Banco de dados em memória H2. Ótimo para desenvolvimento e testes
+             pois não requer instalação externa. O escopo 'runtime' indica
+             que só é necessário em tempo de execução. -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+
+        <!-- Driver de conexão com o MySQL. Mesmo usando H2 para desenvolver,
+             é bom manter essa dependência para quando for migrar para produção. -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- =============================================================== -->
+        <!-- DEPENDÊNCIAS DE DESENVOLVIMENTO                                -->
+        <!-- =============================================================== -->
+
+        <!-- Fornece ferramentas para acelerar o desenvolvimento, como a
+             reinicialização automática da aplicação após alterações no código. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        
+        <!-- =============================================================== -->
+        <!-- DEPENDÊNCIA PARA TESTES                                         -->
+        <!-- =============================================================== -->
+        
+        <!-- Starter para testes, incluindo JUnit, Mockito e outras
+             bibliotecas úteis para testar aplicações Spring Boot. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!--
+      Configuração do build. O plugin do Spring Boot é essencial
+      para empacotar a aplicação em um único JAR executável ("fat jar").
+    -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
