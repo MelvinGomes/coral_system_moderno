@@ -28,7 +28,7 @@ public class PresencaController {
     @PostMapping
     public ResponseEntity<Void> salvarPresencas(@PathVariable int idAgenda, @RequestBody List<Presenca> presencas) throws SQLException {
         for (Presenca p : presencas) {
-            // Usa o novo método do DAO
+            
             dao.marcarPresenca(p.getIdParticipante(), p.getTipoParticipante(), idAgenda, p.isPresente());
         }
         return ResponseEntity.ok().build();

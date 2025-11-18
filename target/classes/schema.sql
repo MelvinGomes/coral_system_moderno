@@ -13,7 +13,7 @@ CREATE TABLE usuario (
     password VARCHAR(100) NOT NULL
 );
 
--- Tabela de Coristas (VERSÃO ANTIGA E ESTÁVEL)
+-- Tabela de Coristas
 CREATE TABLE coristas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE agenda_apresentacoes (
     descricao TEXT
 );
 
--- Tabela de Presenças (VERSÃO CORRIGIDA)
+-- Tabela de Presenças
 CREATE TABLE presencas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_participante INT NOT NULL,

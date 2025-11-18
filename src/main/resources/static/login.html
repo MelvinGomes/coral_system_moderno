@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Sistema Coral</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+
+            <div class="icon-area">
+                <img src="img/logo.svg" alt="logo">
+                <p class="welcome">Bem-vindo de volta</p>
+                <div class="divider"></div>
+            </div>
+
+            <form action="/login" method="post">
+
+                <label class="label">Usuário</label>
+                <div class="input-group">
+                    <span class="icon">👤</span>
+                    <input type="text" name="username" placeholder="Digite seu usuário" required>
+                </div>
+
+                <label class="label">Senha</label>
+                <div class="input-group">
+                    <span class="icon">🔒</span>
+                    <input type="password" name="password" placeholder="Digite sua senha" required>
+                </div>
+
+                <button type="submit" class="btn">ENTRAR</button>
+
+                
+                <p id="error-message" class="erro" style="color: red; text-align: center;"></p>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error')) {
+            const errorMessageElement = document.getElementById('error-message');
+            if (errorMessageElement) {
+                errorMessageElement.textContent = 'Usuário ou senha incorretos!';
+            }
+        }
+    });
+</script>
+
+</body>
+
+</html>

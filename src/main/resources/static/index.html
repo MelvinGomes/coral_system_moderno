@@ -3,23 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Sistema Coral</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <h1>Gestão do Coral</h1>
+    <aside class="sidebar">
+        <div class="perfil">
+            <img src="img/logo.svg" class="logo">
+            <p class="username">Administrador da Silva</p>
+            <p class="email">admin@corista.com</p>
+        </div>
 
-    <nav>
-        <button onclick="carregarConteudoCoristas()">Gerenciar Coristas</button>
-        <button onclick="carregarConteudoMusicos()">Gerenciar Músicos</button>
-        <button onclick="carregarConteudoAgenda()">Gerenciar Agenda</button>
-    </nav>
+        <div class="sidebar-section">
+            <p class="sidebar-title">Filtros</p>
 
-    <hr>
+            <button class="side-btn" onclick="carregarConteudoCoristas()">Coristas</button>
+            <button class="side-btn" onclick="carregarConteudoMusicos()">Músicos</button>
+            <button class="side-btn" onclick="carregarConteudoAgenda()">Agenda</button>
+        </div>
 
-    <main id="conteudo-principal">
-        <h2>Bem-vindo! Selecione uma opção acima.</h2>
+<a href="login.html">
+    <button class="logout-btn">SAIR</button>
+</a>
+    </aside>
+
+    <main class="content-area">
+        <header class="top-bar">
+            <h1>Sistema Coral</h1>
+        </header>
+
+        <section id="conteudo-principal" class="conteudo">
+            <h2>Bem-vindo! Selecione uma opção no menu.</h2>
+        </section>
     </main>
 
     <script src="js/app.js"></script>
+
 </body>
 </html>

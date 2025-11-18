@@ -1,7 +1,7 @@
 -- Inserir um usuário padrão para login
 INSERT INTO usuario (username, password) VALUES ('admin', 'admin');
 
--- Inserir alguns coristas de exemplo (VERSÃO ANTIGA E ESTÁVEL)
+-- Inserir alguns coristas de exemplo
 INSERT INTO coristas (nome, tipo_voz, ativo) VALUES
 ('Ana Silva', 'Soprano', true),
 ('Bruno Costa', 'Tenor', true),

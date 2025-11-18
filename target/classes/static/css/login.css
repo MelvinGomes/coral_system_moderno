@@ -1,0 +1,133 @@
+/* ======= BASE ======= */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #d0c8b1; /* cor areia do Figma */
+    font-family: "Inter", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* ======= CARD ======= */
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width: 100%;
+}
+
+.card {
+    width: 380px;
+    padding: 38px 34px;
+    background: #f9efe7; /* leve rosado do card */
+    border-radius: 12px;
+
+    /* sombra BEM SUAVE, igual ao Figma */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.12);
+
+    border: 1px solid #e0d6cf; /* simula o contorno sutil */
+}
+
+/* ======= LOGO E TÍTULO ======= */
+
+.icon-area {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.icon-area img {
+    width: 60px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+/* texto “Seja bem vindo!” */
+.welcome {
+    font-size: 14px;
+    font-weight: 500;
+    color: #394931;
+    margin-top: 4px;
+}
+
+/* divisor igual ao print */
+.divider {
+    width: 100%;
+    height: 1px;
+    background: #d0c0ba;
+    margin: 16px auto 25px;
+}
+
+/* ======= LABELS ======= */
+
+.label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #394931;
+}
+
+/* ======= INPUTS ======= */
+
+.input-group {
+    position: relative;
+    margin-bottom: 14px;
+}
+
+.input-group input {
+    width: 87%;
+    padding: 11px 10px 11px 36px;
+    border-radius: 4px;
+    border: 1px solid #b8b0a7;
+    background-color: #fff;
+
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #394931;
+    box-shadow: 0 0 5px rgba(57,73,49,0.25);
+}
+
+.input-group .icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #6F7B62;
+    font-size: 15px;
+}
+
+/* ======= BOTÃO ======= */
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #394931;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #222A21;
+}
+
+/* ======= ERRO ======= */
+
+.erro {
+    margin-top: 12px;
+    color: #b60000;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+}

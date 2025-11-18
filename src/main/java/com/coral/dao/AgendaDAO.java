@@ -4,7 +4,7 @@ import com.coral.model.Agenda;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
-import java.sql.*;
+import java.sql.*; // Mantenha este import
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +27,8 @@ public class AgendaDAO {
             while (rs.next()) {
                 Agenda a = new Agenda();
                 a.setId(rs.getInt("id"));
-                a.setData(rs.getDate("data"));
+                // --- MUDANÇA AQUI: Converte do banco para LocalDate ---
+                a.setData(rs.getDate("data").toLocalDate());
                 a.setLocal(rs.getString("local"));
                 a.setDescricao(rs.getString("descricao"));
                 list.add(a);
@@ -45,7 +46,8 @@ public class AgendaDAO {
                 if (rs.next()) {
                     Agenda a = new Agenda();
                     a.setId(rs.getInt("id"));
-                    a.setData(rs.getDate("data"));
+                    // --- MUDANÇA AQUI: Converte do banco para LocalDate ---
+                    a.setData(rs.getDate("data").toLocalDate());
                     a.setLocal(rs.getString("local"));
                     a.setDescricao(rs.getString("descricao"));
                     return a;
@@ -59,7 +61,8 @@ public class AgendaDAO {
         String sql = "INSERT INTO agenda_apresentacoes (`data`, `local`, `descricao`) VALUES (?,?,?)";
         try (Connection c = dataSource.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setDate(1, a.getData());
+            // --- MUDANÇA AQUI: Converte de LocalDate para o formato do banco ---
+            ps.setDate(1, Date.valueOf(a.getData()));
             ps.setString(2, a.getLocal());
             ps.setString(3, a.getDescricao());
             ps.executeUpdate();
@@ -70,7 +73,8 @@ public class AgendaDAO {
         String sql = "UPDATE agenda_apresentacoes SET data = ?, local = ?, descricao = ? WHERE id = ?";
         try (Connection c = dataSource.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
-            ps.setDate(1, agenda.getData());
+            // --- MUDANÇA AQUI: Converte de LocalDate para o formato do banco ---
+            ps.setDate(1, Date.valueOf(agenda.getData()));
             ps.setString(2, agenda.getLocal());
             ps.setString(3, agenda.getDescricao());
             ps.setInt(4, agenda.getId());

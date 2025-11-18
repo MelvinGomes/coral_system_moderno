@@ -20,13 +20,10 @@ public class PresencaDAO {
         this.dataSource = dataSource;
     }
 
-    /**
-     * Busca o status de presença de TODOS os participantes (Coristas e Músicos)
-     * para um evento específico, usando UNION para juntar as duas listas.
-     */
+    
     public List<Presenca> findByAgendaId(int idAgenda) throws SQLException {
         List<Presenca> presencas = new ArrayList<>();
-        // Este SQL complexo busca todos os coristas e músicos e junta com suas presenças
+        
         String sql = 
             "(SELECT c.id AS id_participante, c.nome, 'CORISTA' AS tipo_participante, p.presente " +
             "FROM coristas c " +
@@ -54,9 +51,7 @@ public class PresencaDAO {
         return presencas;
     }
     
-    /**
-     * Atualiza ou insere a presença de um participante genérico para uma agenda.
-     */
+    
     public void marcarPresenca(int idParticipante, TipoParticipante tipo, int idAgenda, boolean presente) throws SQLException {
         String selSql = "SELECT id FROM presencas WHERE id_participante = ? AND tipo_participante = ? AND id_agenda = ?";
         Integer presencaId = null;
