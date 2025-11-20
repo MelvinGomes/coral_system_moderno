@@ -114,7 +114,7 @@ A aplicação expõe os seguintes endpoints RESTful:
 Este projeto foi desenvolvido com a colaboração de:
 
 *   [Melvin Gomes](https://github.com/MelvinGomes)
-*   [Nicole](https://github.com/Elociny/)
+*   [Nicole Lins](https://github.com/Elociny/)
 *   [Vinicius Avarelo](https://github.com/ViniAvarelo)
 *   [Ana Paula](https://github.com/AnaPaula2024)
 *   [Cintia Carvalho](https://github.com/cintiacarvv)
